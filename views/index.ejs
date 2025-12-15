@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/styles.css" rel="stylesheet">
+    <title>Bank Finder</title>
+</head>
+<body>
+    <section>
+        <div class="main-card">
+            <div class="sub-card">
+                <div class="card-header"> 
+                    <h1> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16">
+                            <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916zM12.375 6v7h-1.25V6zm-2.5 0v7h-1.25V6zm-2.5 0v7h-1.25V6zm-2.5 0v7h-1.25V6zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2M.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1z"/>
+                        </svg> 
+                        Bank Finder 
+                    </h1>
+                </div>
+                <div class="card-body">
+                    <h2> Enter IFSC Code </h2>
+                    <form action="/get-details" method="post">
+                        <input type="text" placeholder="eg: ABCD0001234" name="ifsc" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="card-result">
+                    <% if (isValid) { %>
+                        <p><span>Bank Name: </span> <span class="value-font"><%= content.BANK %>       </span></p>
+                        <p><span>IFSC     : </span> <span class="value-font"><%= content.IFSC %>       </span></p>
+                        <p><span>Address  : </span> <span class="value-font"><%= content.ADDRESS %>    </span></p>
+                        <p><span>Bank Code: </span> <span class="value-font"><%= content.BANKCODE %>   </span></p>
+                        <p><span>Branch   : </span> <span class="value-font"><%= content.BRANCH %>     </span></p>
+                        <p><span>City     : </span> <span class="value-font"><%= content.CITY %>       </span></p>
+                        <p><span>District : </span> <span class="value-font"><%= content.DISTRICT %>   </span></p>
+                        <p><span>State    : </span> <span class="value-font"><%= content.STATE %>      </span></p>
+                    
+                    <% } else { %>
+                        <p> <%= content %> </p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
