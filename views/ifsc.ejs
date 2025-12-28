@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+                    
+<div class="card-body">
+    <div class="btn-tab">
+        <form method="GET">
+            <button class="btn-left active-btn" formaction="/get-ifsc-page">IFSC</button>
+            <button class="btn-right" formaction="/get-bankdet-page">Bank Details</button>
+        </form>
+    </div>
+                
+    <h2> Enter IFSC Code </h2>
+    
+    <form action="/get-bank-details" method="post">
+        <input type="text" placeholder="eg: ABCD0001234" name="ifsc" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<div class="card-result">
+
+    <%- include("partials/results.ejs") %>
+
+</div>
+            
+<%- include("partials/footer.ejs") %>

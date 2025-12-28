@@ -1,0 +1,12 @@
+<% if (isValid) { %>
+        <p><span>Bank Name: </span> <span class="value-font"><%= content.BANK %>       </span></p>
+        <p><span>IFSC     : </span> <span class="value-font"><%= content.IFSC %>       </span></p>
+        <p><span>Address  : </span> <span class="value-font"><%= content.ADDRESS %>    </span></p>
+        <p><span>Bank Code: </span> <span class="value-font"><%= content.BANKCODE %>   </span></p>
+        <p><span>Branch   : </span> <span class="value-font"><%= content.BRANCH %>     </span></p>
+        <p><span>City     : </span> <span class="value-font"><%= content.CITY %>       </span></p>
+        <p><span>District : </span> <span class="value-font"><%= content.DISTRICT %>   </span></p>
+        <p><span>State    : </span> <span class="value-font"><%= content.STATE %>      </span></p>                    
+    <% } else { %>
+        <p> <%= content %> </p>
+    <% } %>

@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %>
+
+<div class="card-body">
+    <div class="btn-tab">
+        <form method="GET">
+            <button class="btn-left" formaction="/get-ifsc-page">IFSC</button>
+            <button class="btn-right active-btn" formaction="/get-bankdet-page">Bank Details</button>
+        </form>
+    </div>
+
+    <form action="/get-ifsc-code" method="POST">
+
+        <h2>Select State</h2>
+        <select name="state" id="state">
+            <option value=""> Select State</option>
+            <% states.forEach(state => { %>
+            <option value="<%= state %>"> <%= state %> </option>
+            <% } );%>
+        </select>
+
+        <h2>Select District</h2>
+        <select name="district" id="district">
+            <option value=""> Select District </option>
+        </select>
+
+        <h2>Select City</h2>
+        <select name="city" id="city">
+            <option value=""> Select City</option>
+        </select>
+
+        <h2>Select Center</h2>
+        <select name="center" id="center">
+            <option value=""> Select Center</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Search</button>
+
+        <br><br>
+
+    </form>
+</div>
+                
+<div class="card-result">
+    <%- include("partials/results.ejs") %>
+</div>
+
+<%- include("partials/footer.ejs") %>
